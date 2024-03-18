@@ -66,7 +66,7 @@ void DoublyLinkedList<T>::insert(int index, T value) {
 
 template<typename T>
 void DoublyLinkedList<T>::remove(int index) {
-    if (index >= count || index < 0) throw std::out_of_range("out of range");
+    if (index < 0 || index >= count) throw std::out_of_range("out of range");
 
     T value;
     Node* tmp;
@@ -104,7 +104,7 @@ void DoublyLinkedList<T>::remove(int index) {
 
 template<typename T>
 T& DoublyLinkedList<T>::get(int index) const {
-    if (index < 0 || index >= count) throw std::out_of_range("Index out of range");
+    if (index < 0 || index >= count) throw std::out_of_range("out of range");
     // Give the data of the element at given index in the list
     
     Node* tmp = nullptr;
