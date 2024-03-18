@@ -53,3 +53,48 @@ void train_test_split(Dataset& X, Dataset& y, double test_size,
                         Dataset& X_train, Dataset& X_test, Dataset& y_train, Dataset& y_test);
 
 // Please add more or modify as needed
+
+template<typename T>
+class DoublyLinkedList : public List<T> {
+public:
+    class Node; // Forward declaration
+protected:
+    Node* head;
+    Node* tail;
+    int count;
+public:
+    DoublyLinkedList();
+    ~DoublyLinkedList();
+    void push_back(T value);
+    void push_front(T value);
+    void insert(int index, T value);
+    void remove(int index);
+    T& get(int index) const;
+    int length() const;
+    void clear();
+    void print() const;
+    void reverse();
+
+public:
+    class Node
+    {
+    private:
+        T data;
+        Node *next;
+        Node *previous;
+        friend class DoublyLinkedList<T>;
+
+    public:
+        Node() {
+            this->previous = NULL;
+            this->next = NULL;
+        }
+
+        Node(const T &data) {
+            this->data = data;
+            this->previous = NULL;
+            this->next = NULL;
+        }
+    };
+
+};
