@@ -164,3 +164,73 @@ void DoublyLinkedList<T>::reverse() {
     tail = head;
     head = prevNode;
 }
+
+Dataset::Dataset(){
+    List<List<int>*>* data = NULL;
+}
+
+Dataset::~Dataset(){
+    
+}
+
+Dataset::Dataset(const Dataset& other) {
+
+
+}
+    
+Dataset& Dataset::operator=(const Dataset& other) {
+    
+}
+    
+bool Dataset::loadFromCSV(const char* fileName) {
+    ifstream file(fileName);
+    if (file.is_open())
+    {
+        string line;
+        DoublyLinkedList<DoublyLinkedList<int>> *CSV_data = new DoublyLinkedList<DoublyLinkedList<int>>();
+        while(getline(file,line))
+        {
+            stringstream lineStream(line);
+            string cell;
+            DoublyLinkedList<int> parsedRow;
+            while(getline(lineStream,cell,','))
+            {
+                parsedRow.push_back(stoi(cell));
+            }
+
+            CSV_data->push_back(parsedRow);
+        }
+        data = CSV_data;
+        return true;
+    }
+    return false;
+
+}
+    
+void Dataset::printHead(int nRows = 5, int nCols = 5) const {
+
+}
+    
+void Dataset::printTail(int nRows = 5, int nCols = 5) const {
+
+}
+    
+void Dataset::getShape(int& nRows, int& nCols) const {
+
+}
+    
+void Dataset::columns() const {
+
+}
+    
+bool Dataset::drop(int axis = 0, int index = 0, std::string columns = "") {
+
+}
+    
+Dataset Dataset::extract(int startRow = 0, int endRow = -1, int startCol = 0, int endCol = -1) const {
+
+}
+    
+List<List<int>*>* Dataset::getData() const {
+
+}
