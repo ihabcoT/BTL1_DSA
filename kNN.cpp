@@ -200,7 +200,7 @@ bool Dataset::loadFromCSV(const char* fileName) {
 
             CSV_data->push_back(parsedRow);
         }
-        data = CSV_data;
+        // data = CSV_data;
         return true;
     }
     return false;

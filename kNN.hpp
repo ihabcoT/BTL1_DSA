@@ -21,7 +21,7 @@ public:
 
 class Dataset {
 private:
-    DoublyLinkedList<DoublyLinkedList<int>>* data;
+    List<List<int>>* data;
 
     //You may need to define more
 public:
